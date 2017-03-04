@@ -46,7 +46,7 @@ function parseResponse(data){
 		if(item.data.selftext && item.data.selftext.length > 0){
 			ret.push({
 				title: item.data.title,
-				sub: item.data.subreddit_name_prefixed,
+				subtitle: item.data.subreddit_name_prefixed,
 				likes: item.data.score,
 				text: item.data.selftext,
 				id: item.data.name
