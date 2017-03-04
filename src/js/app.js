@@ -11,10 +11,28 @@ var main = new UI.Card({
   bodyColor: '#9a0036' // Hex colors
 });
 
-api.getSubreddit("all", function(data){
+api.getSubreddit("all", 20, function(data){
   console.log(data.data.children[0].data.title);
-  main.show();
+	var items = createItems(data.data.children);
+	var redditMenu = new UI.Menu({
+    sections: [{
+      items: items
+		}]
+  	});
+	
+  redditMenu.show();
 });
+
+function createItems(arr){
+	var ret = [];
+	for(var i = 0; i < arr.length-1; i++){
+		ret.push({
+			title: arr[i].data.title,
+			subtitle: arr[i].data.subreddit_name_prefixed
+		});
+	}
+	return ret;
+}
 
 main.on('click', 'up', function(e) {
   var menu = new UI.Menu({

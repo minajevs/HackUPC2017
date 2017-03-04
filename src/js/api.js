@@ -4,8 +4,8 @@ var Api = {
   callback: ''
 };
 
-Api.getSubreddit = function(sub, callback){
-  var url = this.URL + sub + '/.json?limit=1';
+Api.getSubreddit = function(sub, count, callback){
+  var url = this.URL + sub + '/.json?limit=' + count;
   this.callback = callback;
   var request = new XMLHttpRequest();
 	request.withCredentials = true;
