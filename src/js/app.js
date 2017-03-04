@@ -11,8 +11,11 @@ var main = new UI.Card({
   bodyColor: '#9a0036' // Hex colors
 });
 
-api.getSubreddit("all", 20, function(data){
-  console.log(data.data.children[0].data.title);
+api.getSubreddit("all", 20,function(data){
+	console.log(data.length);
+  for(var i = 0; i < data.length-1; i++){
+		console.log(data[i].title);
+	}
 	var items = createItems(data.data.children);
 	var redditMenu = new UI.Menu({
     sections: [{
