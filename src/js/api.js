@@ -4,6 +4,10 @@ var Api = {
 	data: []
 };
 
+Api.clear = function(){
+	this.data = [];
+};
+
 Api.getSubreddit = function(sub, count, callback, after){
   var url = this.URL + sub + '/.json?limit=' + count;
 	if(after) url = url+"&after="+after;
