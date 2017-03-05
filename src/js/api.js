@@ -15,7 +15,6 @@ Api.getSubreddit = function(sub, count, callback, after){
 	var self = this;
 	request.withCredentials = true;
 
-
   request.onerror = function (err) {
     console.log(err);
   };
